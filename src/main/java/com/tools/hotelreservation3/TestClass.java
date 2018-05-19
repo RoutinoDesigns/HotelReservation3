@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.tools.hotelreservationfinal3;
+package com.tools.hotelreservation3;
 
 import java.util.Date;
 
