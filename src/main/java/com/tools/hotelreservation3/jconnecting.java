@@ -12,15 +12,15 @@ package com.tools.hotelreservation3;
 import java.sql.*;
 import javax.swing.JOptionPane;
 
-public class jconnection {
+public class jconnecting{
 
-    Connection c;
+    Connection con;
     
-    public static Connection connectDB(){
+    public static Connection ConnectDB(){
         try{
             Class.forName("org.sqlite.JDBC");
-                    Connection c = DriverManager.getConnection("C:\\Users\\Murtada\\Desktop\\HotelReservation3\\HRS.sqlite");
-                    return c;
+                    Connection con = DriverManager.getConnection("C:\\Users\\Hisham\\Desktop\\ELTE\\NewSem2\\ToolsOfSoftware\\HotelReservation3\\HRS.sqlite");
+                    return con;
         }
         catch(Exception e){
             JOptionPane.showMessageDialog(null, e);

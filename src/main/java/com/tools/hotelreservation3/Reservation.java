@@ -5,6 +5,9 @@
  */
 package com.tools.hotelreservation3;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javax.swing.JOptionPane;
@@ -14,7 +17,9 @@ import javax.swing.JOptionPane;
  * @author Hisham
  */
 public class Reservation extends javax.swing.JFrame {
-
+Connection conn;
+ResultSet rs;
+PreparedStatement pst;
     /**
      * Creates new form Reservation
      */

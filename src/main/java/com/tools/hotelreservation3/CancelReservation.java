@@ -5,12 +5,18 @@
  */
 package com.tools.hotelreservation3;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+
 /**
  *
  * @author Hisham
  */
 public class CancelReservation extends javax.swing.JFrame {
-
+Connection conn;
+ResultSet rs;
+PreparedStatement pst;
     /**
      * Creates new form CancelReservation
      */

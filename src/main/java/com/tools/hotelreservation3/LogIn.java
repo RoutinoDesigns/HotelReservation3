@@ -5,17 +5,25 @@
  */
 package com.tools.hotelreservation3;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+
 /**
  *
  * @author Marouane
  */
 public class LogIn extends javax.swing.JFrame {
-
+Connection conn;
+ResultSet rs;
+PreparedStatement pst;
     /**
      * Creates new form LogIn
      */
     public LogIn() {
+      super("Login");   
         initComponents();
+        conn = jconnecting.ConnectDB();
     }
 
     /**
