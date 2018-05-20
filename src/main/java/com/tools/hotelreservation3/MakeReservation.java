@@ -5,20 +5,18 @@
  */
 package com.tools.hotelreservation3;
 
-import javafx.scene.control.Alert;
-import javafx.scene.control.Alert.AlertType;
 import javax.swing.JOptionPane;
 
 /**
  *
  * @author Hisham
  */
-public class Reservation extends javax.swing.JFrame {
+public class MakeReservation extends javax.swing.JFrame {
 
     /**
-     * Creates new form Reservation
+     * Creates new form MakeReservation
      */
-    public Reservation() {
+    public MakeReservation() {
         initComponents();
     }
 
@@ -133,8 +131,8 @@ public class Reservation extends javax.swing.JFrame {
 
     private void jBookButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBookButtonActionPerformed
         // TODO add your handling code here:
-       JOptionPane.showMessageDialog(null, "Your room has been Booked!", "Reservation Successful", 1);
-       
+        JOptionPane.showMessageDialog(null, "Your room has been Booked!", "Reservation Successful", 1);
+
     }//GEN-LAST:event_jBookButtonActionPerformed
 
     private void jCheckInDateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckInDateActionPerformed
@@ -165,20 +163,20 @@ public class Reservation extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Reservation.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MakeReservation.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Reservation.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MakeReservation.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Reservation.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MakeReservation.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Reservation.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MakeReservation.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Reservation().setVisible(true);
+                new MakeReservation().setVisible(true);
             }
         });
     }
