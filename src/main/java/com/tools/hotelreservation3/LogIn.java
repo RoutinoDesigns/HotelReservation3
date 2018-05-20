@@ -5,17 +5,24 @@
  */
 package com.tools.hotelreservation3;
 
+import java.sql.*;
 /**
  *
  * @author Marouane
  */
 public class LogIn extends javax.swing.JFrame {
 
+    Connection c;
+    ResultSet rs;
+    PreparedStatement ps;
+    
     /**
      * Creates new form LogIn
      */
     public LogIn() {
+        super("Login");
         initComponents();
+        c = jconnection.connectDB();
     }
 
     /**
@@ -60,10 +67,20 @@ public class LogIn extends javax.swing.JFrame {
         });
 
         jButton1.setText("Sign Up");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButton2.setText("Log In");
 
         jButton3.setText("Forgot your Password ?");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -124,6 +141,18 @@ public class LogIn extends javax.swing.JFrame {
     private void jPasswordField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordField2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jPasswordField2ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        setVisible(false);
+        SignUp su = new SignUp();
+        su.setVisible(false);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        setVisible(false);
+        PasswordForget fpw = new PasswordForget();
+        fwp.setVisible(false);
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments
