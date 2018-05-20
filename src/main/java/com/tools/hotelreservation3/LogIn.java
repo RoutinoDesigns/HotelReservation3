@@ -5,17 +5,26 @@
  */
 package com.tools.hotelreservation3;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+
 /**
  *
  * @author Marouane
  */
 public class LogIn extends javax.swing.JFrame {
+    Connection c;
+ResultSet r;
+PreparedStatement ps;
 
     /**
      * Creates new form LogIn
      */
     public LogIn() {
+        super("LogIN");
         initComponents();
+        c = jconnection.connectDB();
     }
 
     /**
@@ -28,6 +37,7 @@ public class LogIn extends javax.swing.JFrame {
     private void initComponents() {
 
         jPasswordField1 = new javax.swing.JPasswordField();
+        jScrollBar1 = new javax.swing.JScrollBar();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
@@ -67,6 +77,11 @@ public class LogIn extends javax.swing.JFrame {
         });
 
         jButton2.setText("Log In");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jPasswordForgetBtn.setText("Forgot your Password ?");
         jPasswordForgetBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -149,6 +164,10 @@ public class LogIn extends javax.swing.JFrame {
         obj.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton2ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -193,6 +212,7 @@ public class LogIn extends javax.swing.JFrame {
     private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JPasswordField jPasswordField2;
     private javax.swing.JButton jPasswordForgetBtn;
+    private javax.swing.JScrollBar jScrollBar1;
     private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
 }

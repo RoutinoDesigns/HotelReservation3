@@ -14,16 +14,16 @@ import java.sql.*;
 import javax.swing.JOptionPane;
 
 public class SignUp extends javax.swing.JFrame {
-Connection conn;
-ResultSet rs;
-PreparedStatement pst;
+Connection c;
+ResultSet r;
+PreparedStatement ps;
     /**
      * Creates new form SignUp
      */
     public SignUp() {
         super("SignUp");
         initComponents();
-        conn = jconnection.connectDB();
+        c = jconnection.connectDB();
     }
 
     /**
@@ -38,7 +38,7 @@ PreparedStatement pst;
         jPasswordField2 = new javax.swing.JPasswordField();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
-        jLabel4 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jEmailField = new javax.swing.JTextField();
@@ -63,8 +63,8 @@ PreparedStatement pst;
             }
         });
 
-        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel4.setText("Email");
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel1.setText("Email");
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel6.setText("UserName");
@@ -104,7 +104,7 @@ PreparedStatement pst;
                         .addGap(49, 49, 49))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel4)
+                            .addComponent(jLabel1)
                             .addComponent(jLabel8)
                             .addComponent(jLabel6))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -119,7 +119,7 @@ PreparedStatement pst;
             .addGroup(layout.createSequentialGroup()
                 .addGap(22, 22, 22)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel4)
+                    .addComponent(jLabel1)
                     .addComponent(jEmailField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(56, 56, 56)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -149,15 +149,15 @@ ob.setVisible(true);
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         try{
-            String sql = "Insert Into SignUp (UserName,Password,Email)values(?,?,?)";
-            pst = conn.prepareStatement(sql);
-            pst.setString(1,jUserNameField.getText());
-            pst.setString(2,jEmailField.getText());
-            pst.setString(3,jPasswordField.getText());
-            pst.execute();
+            String sql = "Insert Into SignUp (Email,UserName,Password)values(?,?,?)";
+            ps = c.prepareStatement(sql);
+            ps.setString(1,jEmailField.getText());
+            ps.setString(2,jUserNameField.getText());
+            ps.setString(3,jPasswordField.getText());
+            ps.execute();
             JOptionPane.showMessageDialog(null, " you are Signed up");
-            rs.close();
-            pst.close();
+            r.close();
+            ps.close();
         }
         catch(Exception e)
         {
@@ -169,13 +169,17 @@ ob.setVisible(true);
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField3ActionPerformed
 
+    private void jPasswordFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jPasswordFieldActionPerformed
+
     private void jEmailFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jEmailFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jEmailFieldActionPerformed
 
-    private void jPasswordFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordFieldActionPerformed
+    private void jUserNameFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jUserNameFieldActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jPasswordFieldActionPerformed
+    }//GEN-LAST:event_jUserNameFieldActionPerformed
 
     /**
      * @param args the command line arguments
@@ -216,7 +220,7 @@ ob.setVisible(true);
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JTextField jEmailField;
-    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPasswordField jPasswordField;

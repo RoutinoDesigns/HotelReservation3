@@ -5,17 +5,27 @@
  */
 package com.tools.hotelreservation3;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+
 /**
  *
  * @author Hisham
  */
 public class PasswordForget extends javax.swing.JFrame {
+    Connection c;
+ResultSet r;
+PreparedStatement ps;
 
     /**
      * Creates new form PasswordForget
      */
     public PasswordForget() {
+        super("Passowrd Forget");
+        c = jconnection.connectDB();
         initComponents();
+        
     }
 
     /**
