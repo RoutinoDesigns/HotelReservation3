@@ -17,7 +17,7 @@ public class jconnection {
     public static Connection connectDB(){
         try{
             Class.forName("org.sqlite.JDBC");
-            Connection c = DriverManager.getConnection("jdbc:sqlite:C:\\Users\\Murtada\\Desktop\\HotelReservation3\\HRS.sqlite");
+            Connection c = DriverManager.getConnection("jdbc:sqlite:C:\\Users\\Hisham\\Desktop\\ELTE\\NewSem2\\ToolsOfSoftware\\HotelReservation3\\HRS.sqlite");
             return c;
         }
         catch(Exception e){

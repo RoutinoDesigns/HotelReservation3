@@ -5,6 +5,9 @@
  */
 package com.tools.hotelreservation3;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import javax.swing.JOptionPane;
 
 /**
@@ -12,12 +15,16 @@ import javax.swing.JOptionPane;
  * @author Hisham
  */
 public class MakeReservation extends javax.swing.JFrame {
-
+Connection c;
+    ResultSet rs;
+    PreparedStatement ps;
     /**
      * Creates new form MakeReservation
      */
     public MakeReservation() {
         initComponents();
+        c = jconnection.connectDB();
+ 
     }
 
     /**
@@ -130,9 +137,25 @@ public class MakeReservation extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jBookButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBookButtonActionPerformed
-        // TODO add your handling code here:
-        JOptionPane.showMessageDialog(null, "Your room has been Booked!", "Reservation Successful", 1);
-
+        // TODO add your handling code here
+        try{
+            String sql="Insert into Reservations (UserName,RoomNumber,DateIn,DateOut)value(????)";
+            ps=c.prepareStatement(sql);
+          //  String collectedUsername=jTextField1.getText();
+         //   ps.setString(1,collectedUsername );
+             ps.setDate(5, new java.sql.Date(jCheckInDate.getDate().getTime()));
+              ps.setDate(5, new java.sql.Date(jCheckOutDate.getDate().getTime()));
+            ps.execute();
+        }
+        catch(Exception e)
+        {
+            JOptionPane.showMessageDialog(null, "Your room has been Booked!", "Reservation Successful", 1);
+        }
+   
+        
+        
+        
+        
     }//GEN-LAST:event_jBookButtonActionPerformed
 
     private void jCheckInDateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckInDateActionPerformed

@@ -39,6 +39,46 @@ public class ChooseReservation extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, e);
         }
     }
+    
+    public  void UpdateRow(int RoomNumber)
+  {
+     java.util.Random randomgen = new java.util.Random();
+        try{
+            String sql = "UPDATE Reservations SET ReservationID = ? , "
+                + "RoomNumber = ? "
+                + "DateIn = ?"
+                + "DateOut = ?"    
+                    ;   
+            //to do collect data from other jframes
+            ps = c.prepareStatement(sql);
+            rs = ps.executeQuery();
+            /*
+            ps.setDate(1, );
+            ps.setDate(2, DateOut.);
+            ps.setInt(randomgen, ReservationID);
+            */
+            ps.executeUpdate();
+            jTable1.setModel(DbUtils.resultSetToTableModel(rs));
+        }catch (Exception e){
+            JOptionPane.showMessageDialog(null, e);
+        }
+    }
+    
+ /*public  void DeleteRow(String name)
+  {
+     
+        try{
+            String sql = "DELETE FROM Reservations WHERE name = ?";
+            ps = c.prepareStatement(sql);
+            rs = ps.executeQuery();
+            ps.setString(1,name);
+            ps.executeUpdate();
+            jTable1.setModel(DbUtils.resultSetToTableModel(rs));
+        }catch (Exception e){
+            JOptionPane.showMessageDialog(null, e);
+        }
+    }
+    */
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -50,7 +90,6 @@ public class ChooseReservation extends javax.swing.JFrame {
     private void initComponents() {
 
         jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
@@ -63,8 +102,6 @@ public class ChooseReservation extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-
-        jButton2.setText("Cancel Reservation");
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -91,16 +128,14 @@ public class ChooseReservation extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(44, 44, 44)
-                        .addComponent(jButton1)
-                        .addGap(33, 33, 33)
-                        .addComponent(jButton2))
-                    .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 363, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(117, 117, 117)
+                        .addComponent(jButton1)))
                 .addContainerGap(32, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -111,9 +146,7 @@ public class ChooseReservation extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton2)
-                    .addComponent(jButton1))
+                .addComponent(jButton1)
                 .addGap(59, 59, 59))
         );
 
@@ -161,7 +194,6 @@ public class ChooseReservation extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
