@@ -170,6 +170,9 @@ public class PasswordForget extends javax.swing.JFrame {
 
     private void jGoBackBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jGoBackBtnActionPerformed
         // TODO add your handling code here:
+        setVisible(false);
+        LogIn obj =new LogIn();         //call login page
+        obj.setVisible(true);
     }//GEN-LAST:event_jGoBackBtnActionPerformed
 
     /**
