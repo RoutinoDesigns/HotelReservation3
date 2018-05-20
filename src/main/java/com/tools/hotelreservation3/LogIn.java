@@ -5,11 +5,8 @@
  */
 package com.tools.hotelreservation3;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.util.Scanner;
-import javax.swing.JOptionPane;
+import java.sql.*;
+import javax.swing.*;
 
 /**
  *
@@ -17,8 +14,8 @@ import javax.swing.JOptionPane;
  */
 public class LogIn extends javax.swing.JFrame {
     Connection c;
-    ResultSet r;
-    PreparedStatement ps;
+ResultSet r;
+PreparedStatement ps;
 
     /**
      * Creates new form LogIn
@@ -166,8 +163,6 @@ public class LogIn extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, e);
 
         }
-        
-        
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
