@@ -23,7 +23,7 @@ PreparedStatement pt;
     public SignUp() {
         super("LogIn");
         initComponents();
-        c = javaconnecting.connecerDb();
+        c = jconnection.connecerDb();
     }
 
     /**
