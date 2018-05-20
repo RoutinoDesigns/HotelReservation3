@@ -19,7 +19,7 @@ public class jconnection {
     public static Connection connectDB(){
         try{
             Class.forName("org.sqlite.JDBC");
-                    Connection c = DriverManager.getConnection("C:\\Users\\Marouane\\Documents\\HRSProject\\HotelReservation3\\HRS.sqlite");
+                    Connection c = DriverManager.getConnection("jdbc.sqlite");
                     return c;
         }
         catch(Exception e){

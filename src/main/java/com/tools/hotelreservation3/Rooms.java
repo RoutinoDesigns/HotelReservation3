@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.mycompany.hotelreservationfinal;
+package com.tools.hotelreservation3;
 
 /**
  *
@@ -48,7 +48,7 @@ public class Rooms extends javax.swing.JFrame {
             new Object [][] {
                 {"20", "20$ per night", "No"},
                 {"25", "20$ per night", "Yes"},
-                {"12", "25$ per night", "Yes"}
+                {"21", "25$ per night", "Yes"}
             },
             new String [] {
                 "Room Number", "Price", "Available"
@@ -58,9 +58,9 @@ public class Rooms extends javax.swing.JFrame {
 
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {"1", "50$ per night", "Yes"},
-                {"2", "50$ per night", "No"},
-                {"3", "50$ per night", "No"}
+                {"10", "50$ per night", "Yes"},
+                {"11", "50$ per night", "No"},
+                {"12", "50$ per night", "No"}
             },
             new String [] {
                 "Room Number", "Price", "Availablity"
