@@ -174,7 +174,7 @@ ob.setVisible(true);
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         try{
-            String sql = "Insert Into SignIn (Email,Full Name,UserName,ID Password)values(?,?,?,?)";
+            String sql = "Insert Into SignUp (Email,Full Name,UserName,ID,Password)values(?,?,?,?,?)";
             pt = c.prepareStatement(sql);
             pt.setString(1,jTextField1.getText());
             pt.setString(2,jTextField2.getText());
@@ -188,7 +188,7 @@ ob.setVisible(true);
         }
         catch(Exception e)
         {
-            JOptionPane.showConfirmDialog(null, e);
+            JOptionPane.showMessageDialog(null, e);
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
