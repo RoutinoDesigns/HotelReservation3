@@ -9,35 +9,13 @@ package com.tools.hotelreservation3;
  *
  * @author Hisham
  */
-
-import java.sql.*;
-import javax.swing.*;
-import net.proteanit.sql.DbUtils;
-
 public class ChooseReservation extends javax.swing.JFrame {
 
-    Connection c;
-    ResultSet rs;
-    PreparedStatement ps;
-    
     /**
      * Creates new form ChooseReservation
      */
     public ChooseReservation() {
         initComponents();
-        c = jconnection.connectDB();
-        showAvailableRooms();
-    }
-    
-    private void showAvailableRooms(){
-        try{
-            String sql = "SELECT * FROM Rooms WHERE Availability = 'true'";
-            ps = c.prepareStatement(sql);
-            rs = ps.executeQuery();
-            jTable1.setModel(DbUtils.resultSetToTableModel(rs));
-        }catch (Exception e){
-            JOptionPane.showMessageDialog(null, e);
-        }
     }
 
     /**
@@ -66,8 +44,6 @@ public class ChooseReservation extends javax.swing.JFrame {
 
         jButton2.setText("Cancel Reservation");
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Reservations");
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
@@ -75,11 +51,10 @@ public class ChooseReservation extends javax.swing.JFrame {
                 {null, null, null},
                 {null, null, null},
                 {null, null, null},
-                {null, null, null},
                 {null, null, null}
             },
             new String [] {
-                "Room ID", "Type", "Price"
+                "RoomID", "Number", "Price"
             }
         ));
         jScrollPane1.setViewportView(jTable1);
@@ -89,32 +64,30 @@ public class ChooseReservation extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(44, 44, 44)
-                        .addComponent(jButton1)
-                        .addGap(33, 33, 33)
-                        .addComponent(jButton2))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 363, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(32, Short.MAX_VALUE))
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 363, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel1)
+                .addContainerGap(277, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(38, 38, 38)
+                .addComponent(jButton1)
+                .addGap(41, 41, 41)
+                .addComponent(jButton2)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(36, 36, 36)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton2)
-                    .addComponent(jButton1))
-                .addGap(59, 59, 59))
+                    .addComponent(jButton1)
+                    .addComponent(jButton2))
+                .addContainerGap(144, Short.MAX_VALUE))
         );
 
         pack();
